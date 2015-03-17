@@ -8,4 +8,5 @@ feature 'code' do
     expect(page).to have_content("All projects code")
     click_on "Add Code"
     fill_in :codeblock, with: "Test Code"
-    
+  end
+end
