@@ -2,3 +2,7 @@ TinkerLab
 
 <%= link_to "Log in", sign_in_path %>
 <%= link_to "Sign Up", sign_up_path %>
+
+<% @categories.each do |c| %>
+  <%= link_to c.name category_path(c) %>
+<% end %>

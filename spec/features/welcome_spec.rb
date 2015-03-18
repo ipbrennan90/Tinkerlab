@@ -2,13 +2,24 @@ require 'rails_helper'
 
 feature 'Welcome' do
 
-  scenario "Anonymous user can see welcome page with defaults" do
-    visit root_path
-    users = FactoryGirl.create_list(:user,3)
+  scenario "anonymous user can see all authentication and authorization links" do
     expect(page).to have_content("TinkerLab")
     expect(page).to have_link("Log in")
     expect(page).to have_link("Sign Up")
-    expect(page).to have_link("#{users[0].categories.first.name}")
-    expect(page).to have_link("#{users[0].categories.first.projects.first.title}")
   end
+
+  scenario "anonymous user can see default categories" do
+    categories = FactoryGirl.create_list(:category_with_projects, 4)
+    expect(page).to have_link(category[0].name)
+  end
+
+
+  scenario 'logged in user can see projects' do
+    user = FactoryGirl.create(:user)
+    expect(page).to have_link("#{user.projects.first.title}")
+  end
+
+
+
+
 end
