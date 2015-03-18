@@ -4,5 +4,5 @@ TinkerLab
 <%= link_to "Sign Up", sign_up_path %>
 
 <% @categories.each do |c| %>
-  <%= link_to c.name category_path(c) %>
+  <%= link_to c.name, category_path(c) %>
 <% end %>
