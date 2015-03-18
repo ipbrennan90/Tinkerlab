@@ -3,9 +3,10 @@ require 'rails_helper'
 feature 'Welcome' do
 
   scenario "Anonymous user can see welcome page with defaults" do
-    visit root_path
-    categories = create_list(:category, 3)
-    
+    #visit root_path
+    categories = FactoryGirl.create_list(:category, 3)
+    projects = FactoryGirl.create_list(:project, 3)
+    binding.pry
     expect(page).to have_content("TinkerLab")
     expect(page).to have_link("Log in")
     expect(page).to have_link("Sign Up")
@@ -15,3 +16,5 @@ feature 'Welcome' do
     expect(page).to have_link("#{@user.categories.find(2).projects.first.title}")
     expect(page).to have_link("#{@user.categories.find(3).name}")
     expect(page).to have_link("#{@user.categories.find(3).projects.first.title}")
+  end
+end

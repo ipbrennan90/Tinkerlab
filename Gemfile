@@ -7,6 +7,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem "factory_girl_rails", "~> 4.4.1"
 end
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -19,4 +20,4 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
-gem 'factory_girl'
+gem 'pry'
