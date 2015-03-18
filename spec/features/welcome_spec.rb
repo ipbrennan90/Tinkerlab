@@ -5,8 +5,6 @@ feature 'Welcome' do
   scenario "Anonymous user can see welcome page with defaults" do
     visit root_path
     users = FactoryGirl.create_list(:user,3)
-    projects = FactoryGirl.create_list(:project, 3)
-    #binding.pry
     expect(page).to have_content("TinkerLab")
     expect(page).to have_link("Log in")
     expect(page).to have_link("Sign Up")

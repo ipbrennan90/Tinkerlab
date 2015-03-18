@@ -15,6 +15,10 @@ FactoryGirl.define do
     email {Faker::Internet.email}
     password {pass}
     password_confirmation {pass}
+    after(:create) do |user|
+      user.projects << FactoryGirl.build(:project, user: user)
+    end
   end
+
 
 end
